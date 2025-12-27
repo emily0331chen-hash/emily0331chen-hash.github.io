@@ -1,3 +1,4 @@
+``` name=index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -362,9 +363,7 @@
                 <img
                   src="profile.jpg"
                   alt="Chen Yu-Siang Photo"
-                  class="profile-photo"
-                  id="profilePhoto"
-                  onerror="this.onerror=null;this.src='https://t1.pixhost.to/thumbs/11183/674992798_profile.jpg';" />
+                  class="profile-photo" />
 
                 <div class="intro-text">
                     <h1>Chen Yu-Siang</h1>
@@ -466,32 +465,8 @@
     </div>
 
     <footer>
-        <p>© 2024 Chen Yu-Siang | Connect with me: emily0331chen@gmail.com</p>
+        <p>© 2024 Chen Yu-Siang | Connect with me: emily0331@gmail.com</p>
     </footer>
-
-    <script>
-      // If both local file and fallback fail, replace the <img> with a simple initials avatar.
-      window.addEventListener('load', function () {
-        const img = document.getElementById('profilePhoto');
-        function loaded(i){ return i && i.complete && i.naturalWidth !== 0; }
-        if (!loaded(img)) {
-          const avatar = document.createElement('div');
-          avatar.textContent = 'CY';
-          avatar.setAttribute('aria-hidden','true');
-          avatar.style.width = getComputedStyle(img).width || '280px';
-          avatar.style.height = getComputedStyle(img).height || '280px';
-          avatar.style.borderRadius = '50%';
-          avatar.style.display = 'flex';
-          avatar.style.alignItems = 'center';
-          avatar.style.justifyContent = 'center';
-          avatar.style.background = 'radial-gradient(circle at 30% 30%, #c4b5fd, #7c3aed)';
-          avatar.style.color = '#fff';
-          avatar.style.fontSize = '3.2rem';
-          avatar.style.fontWeight = '700';
-          avatar.style.border = '6px solid rgba(212,181,232,0.9)';
-          img.replaceWith(avatar);
-        }
-      });
-    </script>
 </body>
 </html>
+```
