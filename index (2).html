@@ -58,14 +58,22 @@
     h2 { color:#8b5cf6; font-size:2.2rem; margin-bottom:2rem; border-bottom:2px solid #a78bfa; padding-bottom:.8rem; font-weight:400; }
 
     .intro-content { display:flex; align-items:center; gap:3rem; flex-wrap:wrap; justify-content:center; }
-    .profile-photo {
-      width: 280px; height: 280px; border-radius: 50%;
-      object-fit: cover; border:6px solid #d4b5e8;
+    /* Avatar block (inline SVG fallback, no external image needed) */
+    .avatar {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(circle at 30% 30%, #c4b5fd, #7c3aed);
       box-shadow: 0 10px 30px rgba(147,112,219,0.4);
-      transition: transform .3s ease;
+      border: 6px solid rgba(212,181,232,0.9);
+      color: #fff;
+      font-size: 4rem;
+      font-weight: 600;
+      font-family: Georgia, serif;
     }
-    .profile-photo:hover { transform: scale(1.05); }
-
     .intro-text { flex:1; min-width:300px; text-align:center; }
     .quote { font-style:italic; font-size:1.4rem; color:#6d28d9; margin-top:1.5rem; padding:1.5rem; background:linear-gradient(135deg,#faf5ff 0%,#f3e8ff 100%); border-left:5px solid #a78bfa; border-radius:10px; }
 
@@ -80,7 +88,7 @@
 
     @media (max-width:768px) {
       h1 { font-size:2rem; } h2 { font-size:1.5rem; }
-      .profile-photo { width:200px; height:200px; }
+      .avatar { width:200px; height:200px; font-size:3rem; }
       nav ul { gap:1rem; }
     }
   </style>
@@ -99,13 +107,8 @@
   <div class="container">
     <section id="intro">
       <div class="intro-content">
-        <!-- Using the Pixhost thumbnail (clickable to the full image page) -->
-        <a href="https://pixhost.to/show/11183/674992798_profile.jpg" target="_blank" rel="noopener">
-          <img src="https://t1.pixhost.to/thumbs/11183/674992798_profile.jpg"
-               alt="Emily Chen Profile"
-               class="profile-photo"
-               border="0" />
-        </a>
+        <!-- Built-in avatar (initials "CY") — no external image needed -->
+        <div class="avatar" role="img" aria-label="Profile avatar: initials C Y">CY</div>
 
         <div class="intro-text">
           <h1>Chen Yu-Siang</h1>
@@ -200,7 +203,7 @@
   </div>
 
   <footer>
-    <p>©  Chen Yu-Siang | Connect with me: <a href="mailto:emily0331chen@gmail.com" style="color:white; text-decoration:underline;">emily0331chen@gmail.com</a></p>
+    <p>© 2024 Chen Yu-Siang | Connect with me: <a href="mailto:emily0331chen@gmail.com" style="color:white; text-decoration:underline;">emily0331chen@gmail.com</a></p>
   </footer>
 </body>
 </html>
