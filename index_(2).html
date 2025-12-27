@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chen Yu-Siang — Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.8;
+      color: #4a4a4a;
+      background: linear-gradient(135deg,#e6d5f5 0%,#d4b5e8 50%,#c8a8e0 100%);
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image:
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="65" rx="12" ry="20" fill="%239370db" opacity="0.6"/><ellipse cx="43" cy="70" rx="10" ry="17" fill="%23b19cd9" opacity="0.6"/><ellipse cx="57" cy="70" rx="10" ry="17" fill="%23b19cd9" opacity="0.6"/><rect x="47" y="85" width="6" height="20" fill="%235a7d5a" opacity="0.5"/></svg>'),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="65" rx="12" ry="20" fill="%23a78bfa" opacity="0.5"/><ellipse cx="43" cy="70" rx="10" ry="17" fill="%23c4b5fd" opacity="0.5"/><ellipse cx="57" cy="70" rx="10" ry="17" fill="%23c4b5fd" opacity="0.5"/><rect x="47" y="85" width="6" height="20" fill="%235a7d5a" opacity="0.5"/></svg>');
+      background-size: 120px 120px, 100px 100px;
+      background-position: 5% 15%, 85% 25%;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.8;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+
+    nav {
+      background: rgba(255,255,255,0.98);
+      padding: 1.2rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(200,168,224,0.3);
+      backdrop-filter: blur(10px);
+    }
+    nav ul { list-style: none; display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; }
+    nav a { text-decoration:none; color:#9370db; font-weight:500; transition:all .3s; font-size:1.1rem; }
+    nav a:hover { color:#7b5bb3; transform:translateY(-2px); }
+
+    section {
+      background: rgba(255,255,255,0.95);
+      margin: 2.5rem 0;
+      padding: 4rem 3rem;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(147,112,219,0.2);
+      animation: fadeIn .8s ease-in;
+      backdrop-filter: blur(10px);
+    }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(20px) } to { opacity:1; transform:translateY(0) } }
+
+    h1 { color:#7c3aed; font-size:3rem; margin-bottom:1rem; text-align:center; font-weight:400; }
+    h2 { color:#8b5cf6; font-size:2.2rem; margin-bottom:2rem; border-bottom:2px solid #a78bfa; padding-bottom:.8rem; font-weight:400; }
+
+    .intro-content { display:flex; align-items:center; gap:3rem; flex-wrap:wrap; justify-content:center; }
+    /* Avatar block (inline SVG fallback, no external image needed) */
+    .avatar {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(circle at 30% 30%, #c4b5fd, #7c3aed);
+      box-shadow: 0 10px 30px rgba(147,112,219,0.4);
+      border: 6px solid rgba(212,181,232,0.9);
+      color: #fff;
+      font-size: 4rem;
+      font-weight: 600;
+      font-family: Georgia, serif;
+    }
+    .intro-text { flex:1; min-width:300px; text-align:center; }
+    .quote { font-style:italic; font-size:1.4rem; color:#6d28d9; margin-top:1.5rem; padding:1.5rem; background:linear-gradient(135deg,#faf5ff 0%,#f3e8ff 100%); border-left:5px solid #a78bfa; border-radius:10px; }
+
+    .experience-item { margin-bottom:2rem; padding:2rem; background:linear-gradient(135deg,#faf5ff 0%,#f3e8ff 100%); border-radius:15px; border-left:4px solid #a78bfa; }
+    .about-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:2rem; margin-top:1.5rem; }
+    .about-card { padding:2rem; background:linear-gradient(135deg,#a78bfa 0%,#8b5cf6 100%); color:white; border-radius:20px; box-shadow:0 8px 25px rgba(139,92,246,0.4); }
+
+    .dreams-content { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:2rem; }
+    .dream-card { padding:2.5rem; background:linear-gradient(135deg,#faf5ff 0%,#f3e8ff 100%); border-radius:20px; border-left:6px solid #a78bfa; color:#5b4a6d; }
+
+    footer { text-align:center; padding:2rem; color:white; font-size:1rem; }
+
+    @media (max-width:768px) {
+      h1 { font-size:2rem; } h2 { font-size:1.5rem; }
+      .avatar { width:200px; height:200px; font-size:3rem; }
+      nav ul { gap:1rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#dreams">Dreams</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <section id="intro">
+      <div class="intro-content">
+        <!-- Built-in avatar (initials "CY") — no external image needed -->
+        <div class="avatar" role="img" aria-label="Profile avatar: initials C Y">CY</div>
+
+        <div class="intro-text">
+          <h1>Chen Yu-Siang</h1>
+          <p style="font-size:1.3rem; color:#8b5cf6; margin-top:.5rem; font-weight:500;">NTU | International Business</p>
+          <div class="quote">"Life will find its way out."</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="experience-item">
+        <h3>⭐ Education</h3>
+        <div class="date">2019 - 2022</div>
+        <p><strong>Sanxia Junior High School</strong></p>
+
+        <div class="date" style="margin-top:1.5rem;">2022 - 2025</div>
+        <p><strong>Zhong Shan Girls High School</strong></p>
+
+        <div class="date" style="margin-top:1.5rem;">2025 - Present</div>
+        <p><strong>National Taiwan University (NTU)</strong></p>
+        <p>Major: International Business</p>
+      </div>
+
+      <div class="experience-item">
+        <h3>✨ Projects</h3>
+        <div class="date">2023</div>
+        <p><strong>Carbon Reduction</strong></p>
+        <p>A comprehensive study on carbon reduction strategies.</p>
+        <p><a href="https://www.canva.com/design/DAF2Nf2P6SY/_iTXON8_sZwNCHEhkO9AkQ/edit" target="_blank" style="color:#7c3aed; text-decoration:underline;">View on Canva →</a></p>
+
+        <div class="date" style="margin-top:1.5rem;">2024</div>
+        <p><strong>United States-China Trade War</strong></p>
+        <p>An in-depth analysis of trade relations between the U.S. and China.</p>
+        <p><a href="https://www.canva.com/design/DAF93i-M2ck/U8lBe5vQ9LzHGt4Jv2bPtg/edit" target="_blank" style="color:#7c3aed; text-decoration:underline;">View on Canva →</a></p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>🌸 Hobbies</h3>
+          <ul style="list-style:none; padding-left:0;">
+            <li><strong>Watching Animations</strong><br>Pixar & Studio Ghibli</li>
+            <li><strong>Listening to Music</strong><br>Sentimental ballads</li>
+            <li><strong>Enjoying Delicacies</strong><br>Especially desserts</li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3>💜 Personality</h3>
+          <ul style="list-style:none; padding-left:0;">
+            <li><span style="color:#fff5e6; font-weight:500;">Outgoing</span> & <span style="color:#fff5e6; font-weight:500;">dynamic</span></li>
+            <li><span style="color:#fff5e6; font-weight:500;">Sincere</span> & <span style="color:#fff5e6; font-weight:500;">vibrant</span></li>
+            <li><span style="color:#fff5e6; font-weight:500;">Considerate</span> & <span style="color:#fff5e6; font-weight:500;">compassionate</span></li>
+            <li><span style="color:#fff5e6; font-weight:500;">Responsible</span></li>
+            <li><span style="color:#fff5e6; font-weight:500;">Love making friends</span></li>
+          </ul>
+        </div>
+
+        <div class="about-card">
+          <h3>🌈 More About Me</h3>
+          <ul style="list-style:none; padding-left:0;">
+            <li><strong>MBTI:</strong> ENFP</li>
+            <li><strong>Zodiac:</strong> Aries</li>
+            <li><strong>Fandom:</strong> Uaena (IU fan)</li>
+            <li><strong>Favorite Color:</strong> Purple</li>
+            <li><strong>Favorite Flower:</strong> Tulips</li>
+            <li><strong>Favorite Animal:</strong> Jellyfish</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="dreams">
+      <h2>Dreams & Aspirations</h2>
+      <div class="dreams-content">
+        <div class="dream-card">
+          <div class="dream-item"><strong>Traveling the World</strong><br><br>I dream of exploring different countries and cultures.</div>
+        </div>
+        <div class="dream-card">
+          <div class="dream-item"><strong>Make the World Better</strong><br><br>I believe in starting with small actions that create positive change.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p style="font-size:1.05rem; color:#5b4a6d;">Email: <a href="mailto:emily0331chen@gmail.com" style="color:#7c3aed; text-decoration:underline;">emily0331chen@gmail.com</a></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2024 Chen Yu-Siang | Connect with me: <a href="mailto:emily0331chen@gmail.com" style="color:white; text-decoration:underline;">emily0331chen@gmail.com</a></p>
+  </footer>
+</body>
+</html>
