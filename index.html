@@ -1,121 +1,472 @@
+``` name=index.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chen Yu-Siang — Portfolio</title>
-  <style>
-    *{box-sizing:border-box}
-    body{font-family:Georgia, 'Times New Roman', serif;line-height:1.8;color:#4a4a4a;background:linear-gradient(135deg,#e6d5f5 0%,#d4b5e8 50%,#c8a8e0 100%);margin:0}
-    .container{max-width:1200px;margin:0 auto;padding:20px}
-    nav{background:rgba(255,255,255,0.98);padding:1rem 0;position:sticky;top:0;box-shadow:0 2px 20px rgba(200,168,224,0.25);backdrop-filter:blur(10px)}
-    nav ul{display:flex;justify-content:center;gap:2rem;list-style:none;padding:0;margin:0}
-    nav a{text-decoration:none;color:#6d28d9;font-weight:600}
-    section{background:rgba(255,255,255,0.95);margin:2rem 0;padding:2.5rem;border-radius:18px;box-shadow:0 10px 30px rgba(147,112,219,0.12)}
-    .intro{display:flex;gap:2rem;align-items:center;flex-wrap:wrap;justify-content:center}
-    .profile-photo{width:220px;height:220px;object-fit:cover;border-radius:50%;border:6px solid #d4b5e8;box-shadow:0 10px 30px rgba(147,112,219,0.25);transition:transform .25s}
-    .profile-photo:hover{transform:scale(1.04)}
-    .intro-text{text-align:center;min-width:260px}
-    h1{color:#7c3aed;margin:0 0 .5rem;font-weight:400}
-    .quote{font-style:italic;color:#6d28d9;margin-top:1rem;padding:1rem;border-left:4px solid #a78bfa;border-radius:8px;background:linear-gradient(135deg,#faf5ff,#f3e8ff)}
-    footer{text-align:center;color:#fff;padding:1.5rem;background:linear-gradient(135deg,#7c3aed,#5b21b6);border-radius:0 0 18px 18px;margin-top:1rem}
-    @media(max-width:640px){.profile-photo{width:160px;height:160px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #4a4a4a;
+            background: linear-gradient(135deg, #e6d5f5 0%, #d4b5e8 50%, #c8a8e0 100%);
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="65" rx="12" ry="20" fill="%239370db" opacity="0.6"/><ellipse cx="43" cy="70" rx="10" ry="17" fill="%23b19cd9" opacity="0.6"/><ellipse cx="57" cy="70" rx="10" ry="17" fill="%23b19cd9" opacity="0.6"/><rect x="47" y="85" width="6" height="20" fill="%235a7d5a" opacity="0.5"/></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="65" rx="12" ry="20" fill="%23a78bfa" opacity="0.5"/><ellipse cx="43" cy="70" rx="10" ry="17" fill="%23c4b5fd" opacity="0.5"/><ellipse cx="57" cy="70" rx="10" ry="17" fill="%23c4b5fd" opacity="0.5"/><rect x="47" y="85" width="6" height="20" fill="%235a7d5a" opacity="0.5"/></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="65" rx="12" ry="20" fill="%238b5cf6" opacity="0.55"/><ellipse cx="43" cy="70" rx="10" ry="17" fill="%23a78bfa" opacity="0.55"/><ellipse cx="57" cy="70" rx="10" ry="17" fill="%23a78bfa" opacity="0.55"/><rect x="47" y="85" width="6" height="20" fill="%235a7d5a" opacity="0.5"/></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="65" rx="12" ry="20" fill="%23c4b5fd" opacity="0.5"/><ellipse cx="43" cy="70" rx="10" ry="17" fill="%23ddd6fe" opacity="0.5"/><ellipse cx="57" cy="70" rx="10" ry="17" fill="%23ddd6fe" opacity="0.5"/><rect x="47" y="85" width="6" height="20" fill="%235a7d5a" opacity="0.5"/></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><ellipse cx="50" cy="65" rx="12" ry="20" fill="%237c3aed" opacity="0.6"/><ellipse cx="43" cy="70" rx="10" ry="17" fill="%239370db" opacity="0.6"/><ellipse cx="57" cy="70" rx="10" ry="17" fill="%239370db" opacity="0.6"/><rect x="47" y="85" width="6" height="20" fill="%235a7d5a" opacity="0.5"/></svg>');
+            background-size: 120px 120px, 100px 100px, 140px 140px, 90px 90px, 110px 110px;
+            background-position: 5% 15%, 85% 25%, 50% 70%, 20% 85%, 75% 55%;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(200, 168, 224, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #9370db;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            color: #7b5bb3;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2.5rem 0;
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(147, 112, 219, 0.2);
+            animation: fadeIn 0.8s ease-in;
+            backdrop-filter: blur(10px);
+        }
+
+        section:nth-child(1) {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+        }
+
+        section:nth-child(2) {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+        }
+
+        section:nth-child(3) {
+            background: linear-gradient(135deg, #e9d5ff 0%, #d8b4fe 100%);
+        }
+
+        section:nth-child(4) {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #7c3aed;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: #8b5cf6;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #a78bfa;
+            padding-bottom: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Introduction Section */
+        .intro-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #d4b5e8;
+            box-shadow: 0 10px 30px rgba(147, 112, 219, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .intro-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #6d28d9;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-left: 5px solid #a78bfa;
+            border-radius: 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-radius: 15px;
+            transition: all 0.3s;
+            border-left: 4px solid #a78bfa;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .experience-item h3 {
+            color: #7c3aed;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .experience-item .date {
+            color: #8b5cf6;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            font-style: italic;
+        }
+
+        .experience-item p {
+            color: #5b4a6d;
+        }
+
+        .experience-item a {
+            color: #7c3aed;
+        }
+
+        /* About Me Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-card {
+            padding: 2rem;
+            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .about-card:nth-child(1) {
+            background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%);
+        }
+
+        .about-card:nth-child(2) {
+            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+        }
+
+        .about-card:nth-child(3) {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-card h3 {
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        .about-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .about-card li:last-child {
+            border-bottom: none;
+        }
+
+        .about-card li strong {
+            color: #fff5e6;
+        }
+
+        /* Dreams Section */
+        .dreams-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .dream-card {
+            font-size: 1.2rem;
+            line-height: 2;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-radius: 20px;
+            border-left: 6px solid #a78bfa;
+            color: #5b4a6d;
+        }
+
+        .dream-item {
+            margin: 1.5rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+        }
+
+        .dream-item:before {
+            content: "🌟";
+            position: absolute;
+            left: -0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .dream-card:nth-child(2) .dream-item:before {
+            content: "💫";
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .intro-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="#intro">Introduction</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <nav>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#dreams">Dreams</a></li>
+        </ul>
+    </nav>
 
-  <div class="container">
-    <section id="intro" class="intro" aria-labelledby="intro-heading">
-      <!--
-        Preferred: upload a local image named "profile.jpg" to the repo root.
-        Fallback: if profile.jpg does not exist, the onerror handler will load the Pixhost thumbnail you provided.
-        To use a different external image, replace the fallback URL below.
-      -->
-      <img
-        src="profile.jpg"
-        alt="Profile photo — Chen Yu-Siang"
-        class="profile-photo"
-        id="profilePhoto"
-        onerror="this.onerror=null;this.src='https://t1.pixhost.to/thumbs/11183/674992798_profile.jpg';" />
+    <div class="container">
+        <!-- Introduction Section -->
+        <section id="intro">
+            <div class="intro-content">
+                <!--
+                  Keeps your original design. Primary source is a local file named profile.jpg (recommended).
+                  If profile.jpg is not present or blocked, the onerror fallback loads your Pixhost thumbnail.
+                -->
+                <img
+                  src="profile.jpg"
+                  alt="Chen Yu-Siang Photo"
+                  class="profile-photo" />
 
-      <div class="intro-text">
-        <h1 id="intro-heading">Chen Yu-Siang</h1>
-        <p style="color:#8b5cf6;font-weight:600;margin-top:.25rem">NTU | International Business</p>
-        <div class="quote">"Life will find its way out."</div>
-      </div>
-    </section>
+                <div class="intro-text">
+                    <h1>Chen Yu-Siang</h1>
+                    <p style="font-size: 1.3rem; color: #8b5cf6; margin-top: 0.5rem; font-weight: 500;">NTU | International Business</p>
+                    <div class="quote">
+                        "Life will find its way out."
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div style="margin-top:1rem">
-        <h3>⭐ Education</h3>
-        <p><strong>Sanxia Junior High School</strong> — 2019–2022</p>
-        <p><strong>Zhong Shan Girls High School</strong> — 2022–2025</p>
-        <p><strong>National Taiwan University (NTU)</strong> — 2025–Present (International Business)</p>
-      </div>
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <h3>⭐ Education</h3>
+                <div class="date">2019 - 2022</div>
+                <p><strong>Sanxia Junior High School</strong></p>
+                
+                <div class="date" style="margin-top: 1.5rem;">2022 - 2025</div>
+                <p><strong>Zhong Shan Girls High School</strong></p>
+                
+                <div class="date" style="margin-top: 1.5rem;">2025 - Present</div>
+                <p><strong>National Taiwan University (NTU)</strong></p>
+                <p>Major: International Business</p>
+            </div>
 
-      <div style="margin-top:1rem">
-        <h3>✨ Projects</h3>
-        <p><strong>Carbon Reduction (2023)</strong> — research on sustainable practices.</p>
-        <p><strong>US–China Trade War (2024)</strong> — analysis of causes and impacts.</p>
-      </div>
-    </section>
+            <div class="experience-item">
+                <h3>✨ Projects</h3>
+                <div class="date">2023</div>
+                <p><strong>Carbon Reduction</strong></p>
+                <p>A comprehensive study on carbon reduction strategies, exploring sustainable practices and environmental solutions to combat climate change.</p>
+                <p><a href="https://www.canva.com/design/DAF2Nf2P6SY/_iTXON8_sZwNCHEhkO9AkQ/edit?utm_content=DAF2Nf2P6SY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" style="color: #7c3aed; text-decoration: underline;">View on Canva →</a></p>
+                
+                <div class="date" style="margin-top: 1.5rem;">2024</div>
+                <p><strong>United States-China Trade War</strong></p>
+                <p>An in-depth analysis of the trade relations and economic tensions between the United States and China, examining the causes, impacts, and implications of the trade war.</p>
+                <p><a href="https://www.canva.com/design/DAF93i-M2ck/U8lBe5vQ9LzHGt4Jv2bPtg/edit?utm_content=DAF93i-M2ck&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" style="color: #7c3aed; text-decoration: underline;">View on Canva →</a></p>
+            </div>
+        </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p style="margin-top:1rem">ENFP • Aries • Favorite color: Purple • Fandom: Uaena (IU)</p>
-    </section>
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>🌸 Hobbies</h3>
+                    <ul>
+                        <li><strong>Watching Animations</strong><br>Pixar and Studio Ghibli films</li>
+                        <li><strong>Listening to Music</strong><br>Sentimental ballads</li>
+                        <li><strong>Enjoying Delicacies</strong><br>Especially desserts</li>
+                    </ul>
+                </div>
 
-    <section id="dreams">
-      <h2>Dreams & Aspirations</h2>
-      <ul style="margin-top:1rem">
-        <li>Travel the world and experience different cultures.</li>
-        <li>Work on projects that make a small positive difference.</li>
-      </ul>
-    </section>
+                <div class="about-card">
+                    <h3>💜 Personality</h3>
+                    <ul>
+                        <li><span style="color: #fff5e6; font-weight: 500;">Outgoing</span> and <span style="color: #fff5e6; font-weight: 500;">dynamic</span></li>
+                        <li><span style="color: #fff5e6; font-weight: 500;">Sincere</span> and <span style="color: #fff5e6; font-weight: 500;">vibrant</span></li>
+                        <li><span style="color: #fff5e6; font-weight: 500;">Considerate</span> and <span style="color: #fff5e6; font-weight: 500;">compassionate</span></li>
+                        <li><span style="color: #fff5e6; font-weight: 500;">Responsible</span></li>
+                        <li><span style="color: #fff5e6; font-weight: 500;">Love making friends</span></li>
+                    </ul>
+                </div>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p style="font-size:1.05rem;color:#5b4a6d">Email: <a href="mailto:emily0331chen@gmail.com" style="color:#7c3aed;text-decoration:underline">emily0331chen@gmail.com</a></p>
-    </section>
-  </div>
+                <div class="about-card">
+                    <h3>🌈 More About Me</h3>
+                    <ul>
+                        <li><strong>MBTI:</strong> ENFP</li>
+                        <li><strong>Zodiac Sign:</strong> Aries</li>
+                        <li><strong>Fandom:</strong> Uaena (IU fan)</li>
+                        <li><strong>Favorite Color:</strong> Purple</li>
+                        <li><strong>Favorite Flower:</strong> Tulips</li>
+                        <li><strong>Favorite Animal:</strong> Jellyfish</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-  <footer>© 2024 Chen Yu‑Siang</footer>
+        <!-- Dreams Section -->
+        <section id="dreams">
+            <h2>Dreams & Aspirations</h2>
+            <div class="dreams-content">
+                <div class="dream-card">
+                    <div class="dream-item">
+                        <strong>Traveling the World</strong><br><br>
+                        I dream of exploring different countries and cultures to broaden my horizons. Each journey is an opportunity to learn, grow, and see the world from new perspectives.
+                    </div>
+                </div>
+                <div class="dream-card">
+                    <div class="dream-item">
+                        <strong>Make the World Better</strong><br><br>
+                        I believe in starting with small actions that create positive change. Every little step counts, and together these small actions can make a meaningful difference in the world.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-  <script>
-    /* Optional: small script to show a CSS avatar if both local and fallback fail.
-       It replaces broken <img> with a styled initials avatar. */
-    window.addEventListener('load', function(){
-      var img = document.getElementById('profilePhoto');
-      // If the image failed to load and src ends up as empty or an HTML preview,
-      // replace with a simple initials avatar element.
-      function isImageLoaded(i){ return i && i.complete && i.naturalWidth !== 0; }
-      if (!isImageLoaded(img)) {
-        var avatar = document.createElement('div');
-        avatar.textContent = 'CY';
-        avatar.setAttribute('aria-hidden','true');
-        avatar.style.width = img.style.width || '220px';
-        avatar.style.height = img.style.height || '220px';
-        avatar.style.borderRadius = '50%';
-        avatar.style.display = 'flex';
-        avatar.style.alignItems = 'center';
-        avatar.style.justifyContent = 'center';
-        avatar.style.background = 'radial-gradient(circle at 30% 30%, #c4b5fd, #7c3aed)';
-        avatar.style.color = '#fff';
-        avatar.style.fontSize = '2.6rem';
-        avatar.style.fontWeight = '700';
-        avatar.style.border = '6px solid rgba(212,181,232,0.9)';
-        img.replaceWith(avatar);
-      }
-    });
-  </script>
+    <footer>
+        <p>© 2024 Chen Yu-Siang | Connect with me: emily0331@gmail.com</p>
+    </footer>
 </body>
 </html>
+```
