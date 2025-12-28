@@ -140,31 +140,13 @@
 
         /* Introduction Section */
         .intro-content {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .profile-photo {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid #d4b5e8;
-            box-shadow: 0 10px 30px rgba(147, 112, 219, 0.4);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.05);
+            text-align: center;
+            padding: 2rem 0;
         }
 
         .intro-text {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .quote {
@@ -328,16 +310,6 @@
             nav ul {
                 gap: 1rem;
             }
-
-            .intro-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .profile-photo {
-                width: 200px;
-                height: 200px;
-            }
         }
     </style>
 </head>
@@ -355,15 +327,6 @@
         <!-- Introduction Section -->
         <section id="intro">
             <div class="intro-content">
-                <!--
-                  Keeps your original design. Primary source is a local file named profile.jpg (recommended).
-                  If profile.jpg is not present or blocked, the onerror fallback loads your Pixhost thumbnail.
-                -->
-                <img
-                  src="profile.jpg"
-                  alt="Chen Yu-Siang Photo"
-                  class="profile-photo" />
-
                 <div class="intro-text">
                     <h1>Chen Yu-Siang</h1>
                     <p style="font-size: 1.3rem; color: #8b5cf6; margin-top: 0.5rem; font-weight: 500;">NTU | International Business</p>
@@ -464,8 +427,7 @@
     </div>
 
     <footer>
-        <p>© 2024 Chen Yu-Siang | Connect with me: emily0331@gmail.com</p>
+        <p>© 2024 Chen Yu-Siang | Connect with me: your.email@example.com</p>
     </footer>
 </body>
 </html>
-```
